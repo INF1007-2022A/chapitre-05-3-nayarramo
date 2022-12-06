@@ -14,8 +14,9 @@ def get_word_length_histogram(text):
 	list_words, len_words, histogram = text.split(" "), [], [0]
 	for word in list_words:
 		len_words += [get_num_letters(word)]
-	for i in range(max(len_words)):
-		histogram += [0]
+	len_words = [value for value in len_words if value != 0]
+	for _ in range(max(len_words)):
+		histogram.append(0)
 	for length in len_words:
 		histogram[length] += 1
 	return histogram
